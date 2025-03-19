@@ -75,7 +75,7 @@ editing_task = Task(
 # Define Crew
 crew = Crew(
     agents=[content_creator, seo_specialist, editor],
-    tasks=[post_idea_task, post_generation_task, optimization_task, editing_task]
+    tasks=[post_idea_task, post_generation_task, optimization_task, editing_task],
     memory=client
 )
 
