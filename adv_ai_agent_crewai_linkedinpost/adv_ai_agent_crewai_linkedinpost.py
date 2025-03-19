@@ -3,10 +3,17 @@ import streamlit as st
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 from langchain.chat_models import ChatOpenAI
-from chromadb import PersistentClient
+import chromadb
+import platform
 
-# Use in-memory ChromaDB to bypass SQLite errors
-client = PersistentClient(path="/tmp/chroma") 
+# Conditionally use pysqlite3 on Linux (Streamlit Cloud) to bypass SQLite version issues
+if platform.system() == "Linux":
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# Use in-memory ChromaDB to avoid persistent storage issues on Streamlit Cloud
+client = chromadb.PersistentClient(path="/tmp/chroma")
 
 # Load API Key
 load_dotenv()
@@ -78,7 +85,6 @@ crew = Crew(
     tasks=[post_idea_task, post_generation_task, optimization_task, editing_task],
     memory=client
 )
-
 
 # Button to generate the post
 if st.button("Generate LinkedIn Post"):
