@@ -7,7 +7,7 @@ from typing import TypedDict, Optional
 from dotenv import load_dotenv
 
 load_dotenv()
-api_key = st.secrets["OPENAI_API_kEY"]
+api_key = st.secrets["OPENAI_API_KEY"]
 
 # Initialize OpenAI model
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.3)
