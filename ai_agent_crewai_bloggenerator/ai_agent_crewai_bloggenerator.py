@@ -1,12 +1,9 @@
 import os
 import streamlit as st
-from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 
 # Load environment variables
-load_dotenv()
 api_key = st.secrets["OPENAI_API_KEY"]
-
 
 # Streamlit UI
 st.title("AI Blog Post Generator 📝")
@@ -27,7 +24,8 @@ if st.button("Generate Blog Post"):
                 goal="Find relevant information and insights on a given topic.",
                 backstory="A seasoned research analyst skilled in gathering precise and useful data.",
                 verbose=True,
-                llm_model="gpt-4o-mini"
+                llm_model="gpt-4o-mini",
+                openai_api_key=api_key 
             )
 
             writer = Agent(
@@ -35,15 +33,16 @@ if st.button("Generate Blog Post"):
                 goal="Write a well-structured and engaging blog post based on research.",
                 backstory="An expert content writer who specializes in crafting high-quality blog posts.",
                 verbose=True,
-                llm_model="gpt-4o-mini"
-            )
+                llm_model="gpt-4o-mini",
+                openai_api_key=api_key  
 
             reviewer = Agent(
                 role="Reviewer",
                 goal="Refine the blog post by correcting errors and improving readability.",
                 backstory="A meticulous editor with an eye for detail and clarity.",
                 verbose=True,
-                llm_model="gpt-4o-mini"
+                llm_model="gpt-4o-mini",
+                openai_api_key=api_key  # Pass API key to agent
             )
 
             # Define Tasks
@@ -69,7 +68,8 @@ if st.button("Generate Blog Post"):
             crew = Crew(
                 agents=[researcher, writer, reviewer],
                 tasks=[research_task, writing_task, review_task],
-                llm_model="gpt-4o-mini"
+                llm_model="gpt-4o-mini",
+                openai_api_key=api_key  
             )
 
             # Run CrewAI
