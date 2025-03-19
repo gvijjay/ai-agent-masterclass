@@ -3,6 +3,10 @@ import streamlit as st
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 from langchain.chat_models import ChatOpenAI
+from chromadb import PersistentClient
+
+# Use in-memory ChromaDB to bypass SQLite errors
+client = PersistentClient(path="/tmp/chroma") 
 
 # Load API Key
 load_dotenv()
@@ -72,6 +76,7 @@ editing_task = Task(
 crew = Crew(
     agents=[content_creator, seo_specialist, editor],
     tasks=[post_idea_task, post_generation_task, optimization_task, editing_task]
+    memory=client
 )
 
 
