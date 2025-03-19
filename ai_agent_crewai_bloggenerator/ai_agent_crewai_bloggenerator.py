@@ -1,10 +1,10 @@
 import os
 import streamlit as st
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 
 # Load environment variables
-#load_dotenv()
+load_dotenv()
 api_key = st.secrets["OPENAI_API_KEY"]
 
 
