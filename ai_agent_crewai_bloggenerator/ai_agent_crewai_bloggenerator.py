@@ -35,6 +35,7 @@ if st.button("Generate Blog Post"):
                 verbose=True,
                 llm_model="gpt-4o-mini",
                 openai_api_key=api_key  
+            )
 
             reviewer = Agent(
                 role="Reviewer",
@@ -42,7 +43,7 @@ if st.button("Generate Blog Post"):
                 backstory="A meticulous editor with an eye for detail and clarity.",
                 verbose=True,
                 llm_model="gpt-4o-mini",
-                openai_api_key=api_key  # Pass API key to agent
+                openai_api_key=api_key  
             )
 
             # Define Tasks
