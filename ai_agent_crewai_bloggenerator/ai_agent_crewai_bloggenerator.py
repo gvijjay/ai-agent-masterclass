@@ -1,11 +1,6 @@
 import os
 import streamlit as st
 from crewai import Agent, Task, Crew
-import chromadb
-import sys
-import pysqlite3
-sys.modules["sqlite3"] = pysqlite3
-st.write(f"SQLite version after pysqlite3: {pysqlite3.sqlite_version}")
 
 # Load environment variables
 api_key = st.secrets["OPENAI_API_KEY"]
