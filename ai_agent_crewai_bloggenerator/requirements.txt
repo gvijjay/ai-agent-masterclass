@@ -132,6 +132,7 @@ shellingham
 six  
 smmap  
 sniffio  
+sqlite3
 stack-data  
 starlette  
 streamlit  
