@@ -1,10 +1,10 @@
 import os
 import streamlit as st
 from crewai import Agent, Task, Crew
-
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+>>> import pysqlite3
+>>> import sys
+>>> sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+>>> import chromadb
 
 
 # Load environment variables
