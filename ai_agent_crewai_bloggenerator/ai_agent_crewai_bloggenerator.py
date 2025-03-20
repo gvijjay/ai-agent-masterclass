@@ -6,6 +6,12 @@ __import__('pysqlite3')
 import sys
 
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+# Set SQLite Path from Streamlit secrets
+sqlite_path = os.getenv("SQLITE3_PATH", "/usr/lib/sqlite3")
+os.environ["LD_LIBRARY_PATH"] = sqlite_path
+
+
 # Load environment variables
 api_key = st.secrets["OPENAI_API_KEY"]
 
