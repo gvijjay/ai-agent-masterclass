@@ -116,6 +116,7 @@ pypdfium2
 PyPika  
 pyproject_hooks  
 pyreadline3  
+pysqlite3
 python-dateutil  
 python-dotenv  
 pytz  
@@ -132,7 +133,6 @@ shellingham
 six  
 smmap  
 sniffio  
-sqlite3
 stack-data  
 starlette  
 streamlit  
