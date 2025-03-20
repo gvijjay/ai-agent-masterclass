@@ -17,13 +17,13 @@ cachetools
 certifi  
 cffi  
 charset-normalizer  
-chroma-hnswlib==0.7.5  
+chroma-hnswlib
 chromadb==0.5.4
 click  
 colorama  
 coloredlogs  
-crewai  
-crewai-tools
+crewai==0.95.0  
+crewai-tools==0.25.8
 cryptography  
 decorator  
 Deprecated  
