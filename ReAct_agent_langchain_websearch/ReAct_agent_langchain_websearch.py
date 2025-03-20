@@ -5,6 +5,9 @@ from googlesearch import search
 import requests
 from bs4 import BeautifulSoup
 
+
+openai_api_key=st.secrets["OPENAI_API_KEY"]
+
 #  Google Search Scraper (No API Key)
 def google_search_scraper(query):
     search_results = []
@@ -32,7 +35,7 @@ def scrape_first_link(search_results):
         return None  # If scraping fails, return None
 
 #  Initialize AI Model
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7, max_tokens=3000)  # Increase max_tokens for longer responses
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.7, max_tokens=3000, openai_api_key=openai_api_key)  # Increase max_tokens for longer responses
 
 #  Google Search Tool
 def smart_search_tool(query):
