@@ -23,7 +23,6 @@ click
 colorama  
 coloredlogs  
 crewai  
-crewai-tools
 cryptography  
 decorator  
 Deprecated  
