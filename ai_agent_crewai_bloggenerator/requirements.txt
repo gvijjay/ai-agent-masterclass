@@ -22,7 +22,7 @@ chromadb
 click  
 colorama  
 coloredlogs  
-crewai==0.95.0  
+crewai  
 crewai-tools==0.25.8
 cryptography  
 decorator  
