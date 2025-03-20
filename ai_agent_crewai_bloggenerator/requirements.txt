@@ -130,6 +130,7 @@ requests-oauthlib
 rich  
 rpds-py  
 rsa  
+setuptools
 shellingham  
 six  
 smmap  
