@@ -18,7 +18,7 @@ certifi
 cffi  
 charset-normalizer  
 chroma-hnswlib==0.7.5
-chromadb==0.5.4
+chromadb>=0.5.23
 click  
 colorama  
 coloredlogs  
