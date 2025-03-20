@@ -83,7 +83,7 @@ workflow.add_edge("suggest_fix", "suggest_alternative_fix")
 debugger_agent = workflow.compile()
 
 # Streamlit UI
-st.title("🛠️ AI Debugging Companion")
+st.title(" AI Debugging Companion")
 st.write("Enter your Python code below, and the AI will analyze and suggest fixes.")
 
 code_input = st.text_area("Paste your Python code here:", height=200)
@@ -100,7 +100,7 @@ if st.button("Debug Code"):
         st.subheader("✅ Fix Suggestion:")
         st.code(result["fix_suggestion"], language="python")
 
-        st.subheader("🔄 Alternative Fix:")
+        st.subheader(" Alternative Fix:")
         st.code(result["alternative_fixes"], language="python")
     else:
-        st.warning("⚠️ Please enter some code before debugging.")
+        st.warning(" Please enter some code before debugging.")
