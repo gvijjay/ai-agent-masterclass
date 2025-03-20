@@ -22,8 +22,8 @@ chromadb
 click  
 colorama  
 coloredlogs  
-crewai  
-crewai-tools==0.25.8
+crewai==0.95.0  
+crewai-tools
 cryptography  
 decorator  
 Deprecated  
