@@ -54,7 +54,7 @@ search_tool = Tool(name="Smart Search", func=smart_search_tool, description="Sea
 agent = initialize_agent([search_tool], llm, agent_type=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, handle_parsing_errors=True, return_intermediate_steps=True)
 
 #  Streamlit UI
-st.title("AI-Powered Google Web search (No API Key Needed)")
+st.title("AI-Powered Google Web search")
 st.write("Ask anything, and it will fetch the information.")
 
 query = st.text_input("Enter your query:")
