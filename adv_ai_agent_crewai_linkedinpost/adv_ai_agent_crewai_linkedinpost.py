@@ -3,17 +3,7 @@ import streamlit as st
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 from langchain.chat_models import ChatOpenAI
-import chromadb
-import platform
 
-# Conditionally use pysqlite3 on Linux (Streamlit Cloud) to bypass SQLite version issues
-if platform.system() == "Linux":
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
-# Use in-memory ChromaDB to avoid persistent storage issues on Streamlit Cloud
-client = chromadb.PersistentClient(path="/tmp/chroma")
 
 # Load API Key
 load_dotenv()
@@ -23,7 +13,7 @@ openai_api_key = st.secrets["OPENAI_API_KEY"]
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.7, openai_api_key=openai_api_key)
 
 # Streamlit UI
-st.title("🚀 LinkedIn Post Generator with AI")
+st.title(" LinkedIn Post Generator with AI")
 st.write("Generate engaging LinkedIn posts using AI-powered agents!")
 
 # User Inputs
@@ -92,8 +82,8 @@ if st.button("Generate LinkedIn Post"):
         with st.spinner("Generating your LinkedIn post..."):
             result = crew.kickoff()
         st.success("✅ LinkedIn post generated successfully!")
-        st.write("### 📌 Your LinkedIn Post:")
+        st.write("### Your LinkedIn Post:")
         st.write(result)
         st.code(result, language="markdown")  # Display the post in a copy-friendly format
     else:
-        st.warning("⚠️ Please enter a topic to generate a post.")
+        st.warning(" Please enter a topic to generate a post.")
